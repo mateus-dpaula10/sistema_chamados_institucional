@@ -1,0 +1,278 @@
+$rosa_padrao: #F25652;
+$cinza_login: #7B7B7B;
+
+header {
+    #menu_top {
+        background-color: $rosa_padrao;
+
+        .container-fluid {
+            flex-wrap: nowrap;
+            white-space: nowrap;
+
+            #user {
+                cursor: pointer;
+                position: relative;
+                z-index: 3;
+
+                * {
+                    color: #FFF;
+                }
+
+                h6 {
+                    i {
+                        font-size: .5rem;
+                    }
+                }
+
+                #submenu_main {
+                    position: absolute;
+                    top: -10rem;
+                    right: -12px;
+                    padding: 1rem 2rem;
+                    width: max-content;
+                    margin: 0;
+                    list-style: none;
+                    background-color: $rosa_padrao;
+                    transition: all 1s ease-in-out;
+                    border-radius: 0 0 .25rem .25rem;
+                    z-index: -99999;
+
+                    li {
+                        a {
+                            text-decoration: none;
+
+                            i {
+                                font-size: .75rem;
+                            }
+                        }
+                    }
+
+                    &.active {
+                        top: 2.2rem;
+                    }
+                }
+            }
+
+            #offcanvasNavbar {
+                @media(max-width:768px){
+                    min-width: 75%;
+                }
+
+                ul {
+                    li {
+                        a {
+                            &.active {
+                                font-weight: 500;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        #btn_toggle {
+            border-color: #FFF;
+        }
+
+        #btn_toggle:focus {
+            box-shadow: none;
+        }
+
+        #btn_toggle .navbar-toggler-icon {
+            background-image: none!important;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center
+        }
+
+        #btn_toggle .navbar-toggler-icon div {
+            background-color: #FFF;
+            height: .1rem;
+            width: 1.25rem;
+        }
+
+        #btn_toggle .navbar-toggler-icon div:not(:first-of-type) {
+            margin-top: .4rem;
+        }
+    }
+}
+
+main {
+    position: relative;
+
+    #content {
+        transition: all 1s ease-in-out;
+        min-height: 80vh;
+
+        #chamados {
+            .card-body {
+                table {
+                    font-size: .9rem!important;
+
+                    th, td {
+                        white-space: nowrap;
+                    }
+
+                    tr {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        // modal pagina show
+        #modal_anexo .modal-body .img {
+            width: 100%;
+            height: 15rem;
+
+            img {
+                object-fit: contain;
+                object-position: center;
+                height: 100%;
+                width: 100%;
+            }
+        }
+    }
+
+    #show_chamados {
+        #modal_detalhes_chamados {
+            .modal-dialog {
+                @media(min-width:768px){
+                    max-width: 75%;
+                }
+
+                .modal-content {
+                    max-height: 85vh;
+                    overflow-y: auto;
+
+                    #modal_anexo {
+                        width: 10rem;
+                        height: 10rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+footer {
+    background-color: $rosa_padrao;
+}
+
+#login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+
+    .img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('/img/login/bg.png');
+        background-size: cover;
+        background-position: bottom left;
+        z-index: -1;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #7b7b7bb8;
+            z-index: 0;
+        }
+    }
+
+    .targeta {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 7rem;
+        margin: auto;
+        width: calc(14rem - 2vw);
+        background-color: $rosa_padrao;
+        z-index: -1;
+        border-radius: 0 0 10px 10px;
+
+        img {
+            max-width: 8rem;
+            display: block;
+            margin: 4rem auto 0;
+        }
+    }
+
+    .card {
+        background-color: #F3F3F3;
+
+        h2 {
+            color: $cinza_login;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .card-body {
+            .form-group {
+                position: relative;
+
+                i {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    margin: 0 1rem;
+                    color: #707070A6;
+                    font-size: 1.2rem;
+                }
+
+                .form-control {
+                    border-color: #707070A6;
+                    padding: .75rem .75rem .75rem 2.7rem;
+                    border-radius: 10px;
+
+                    &::placeholder {
+                        font-weight: 400;
+                        color: #707070A6;
+                        font-size: 1.1rem;
+                    }
+
+                    &:focus {
+                        box-shadow: none;
+                    }
+                }
+            }
+
+            .btn {
+                background-color: #F25652;
+                color: #FFF;
+                transition: all .35s ease-in-out;
+                padding: .5rem 3rem;
+                border-radius: 10px;
+                font-size: 1.1rem;
+
+                &:hover {
+                    background-color: #FFF;
+                    color: #F25652;
+                    border-color: #F25652;
+                }
+            }
+        }
+    }
+
+    #footer {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        p {
+            color: #FFF;
+        }
+    }
+}
